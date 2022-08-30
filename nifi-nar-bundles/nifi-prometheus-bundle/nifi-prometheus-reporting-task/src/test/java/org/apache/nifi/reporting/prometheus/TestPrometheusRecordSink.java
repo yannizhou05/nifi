@@ -48,7 +48,7 @@ import org.apache.nifi.util.MockPropertyValue;
 import org.apache.nifi.util.MockVariableRegistry;
 import org.junit.jupiter.api.Test;
 
-import java.util.*;
+import java.util.LinkedHashMap;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.HttpURLConnection;
