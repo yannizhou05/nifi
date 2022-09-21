@@ -81,13 +81,11 @@ public class TestPrometheusRecordSink {
         );
         RecordSchema recordSchema = new SimpleRecordSchema(recordFields);
 
-        // Map<String, Object> row1 = new HashMap<>();
         Map<String, Object> row1 = new LinkedHashMap<>();
         row1.put("field1", 15);
         row1.put("field2", BigDecimal.valueOf(12.34567D));
         row1.put("field3", "Hello");
 
-        // Map<String, Object> row2 = new HashMap<>();
         Map<String, Object> row2 = new LinkedHashMap<>();
         row2.put("field1", 6);
         row2.put("field2", BigDecimal.valueOf(0.1234567890123456789D));
@@ -98,7 +96,6 @@ public class TestPrometheusRecordSink {
                 new MapRecord(recordSchema, row2)
         ));
         
-        // Map<String, String> attributes = new HashMap<>();
         Map<String, Object> attributes = new LinkedHashMap<>();
         attributes.put("a", "Hello");
         WriteResult writeResult = sink.sendData(recordSet, attributes, true);
@@ -108,11 +105,9 @@ public class TestPrometheusRecordSink {
 
 
         final String content = getMetrics();
-        // assertTrue(content.contains("field1{field3=\"Hello\",} 15.0\nfield1{field3=\"World!\",} 6.0\n"));
         assertTrue(content.contains("field1{field3=\"Hello\",} 15.0\nfield1{field3=\"World!\",} 6.0\n") ||
                    content.contains("field1{field3=\"World!\",} 6.0\nfield1{field3=\"Hello\",} 15.0\n"));
         
-        // assertTrue(content.contains("field2{field3=\"Hello\",} 12.34567\nfield2{field3=\"World!\",} 0.12345678901234568\n"));
         assertTrue(content.contains("field2{field3=\"Hello\",} 12.34567\nfield2{field3=\"World!\",} 0.12345678901234568\n") ||
                    content.contains("field2{field3=\"World!\",} 0.12345678901234568\nfield2{field3=\"Hello\",} 12.34567\n"));
 
