@@ -95,7 +95,7 @@ public class TestPrometheusRecordSink {
                 new MapRecord(recordSchema, row1),
                 new MapRecord(recordSchema, row2)
         ));
-        
+
         Map<String, Object> attributes = new LinkedHashMap<>();
         attributes.put("a", "Hello");
         WriteResult writeResult = sink.sendData(recordSet, attributes, true);
