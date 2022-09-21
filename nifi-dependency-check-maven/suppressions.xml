@@ -150,6 +150,11 @@
         <cve>CVE-2020-13955</cve>
     </suppress>
     <suppress>
+        <notes>CVE-2020-13955 applies to Apache Calcite Core not Apache Calcite Avatica subproject</notes>
+        <packageUrl regex="true">^pkg:maven/org\.apache\.calcite\.avatica\/avatica(-metrics)?@.*$</packageUrl>
+        <cve>CVE-2020-13955</cve>
+    </suppress>
+    <suppress>
         <notes>OpenTSDB vulnerabilities do not apply to HBase Async library</notes>
         <packageUrl regex="true">^pkg:maven/org\.hbase/asynchbase@.*$</packageUrl>
         <cpe>cpe:/a:opentsdb:opentsdb</cpe>
@@ -193,5 +198,10 @@
         <notes>CVE-2021-43045 applies to the Apache Avro .NET SDK and not to the Java SDK</notes>
         <packageUrl regex="true">^pkg:maven/org\.apache\.avro/avro@.*$</packageUrl>
         <cve>CVE-2021-43045</cve>
+    </suppress>
+    <suppress>
+        <notes>CVE-2022-31159 applies to AWS S3 library not the SWF libraries</notes>
+        <packageUrl regex="true">^pkg:maven/com\.amazonaws/aws\-java\-sdk\-swf\-libraries@.*$</packageUrl>
+        <cve>CVE-2022-31159</cve>
     </suppress>
 </suppressions>
